@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DropKeyboardConfigurator.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="200"
+        x:Class="DropKeyboardConfigurator.Views.DumpFirmwareWindow"
+        Icon="/Assets/menu_icons/dump_firmware.png"
+        MinWidth="810"
+        MaxWidth="810"
+        WindowStartupLocation="CenterOwner"
+        MinHeight="200"
+        MaxHeight="200"
+        Background="#282a36"
+        Title="Dump Firmware">
+
+    <Window.Styles>
+        <Style Selector="Label.h1">
+            <Setter Property="FontSize" Value= "24"/>
+            <Setter Property="FontWeight" Value= "Bold"/>
+        </Style>
+    </Window.Styles>
+
+    <Design.DataContext>
+        <vm:DumpFirmwareViewModel/>
+    </Design.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="650"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Label Name="lblDumpFirmware" Classes="h1" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10" Content="Dump Firmware"/>
+        <TextBox Name="txtProfileName" Watermark="Profile Name" Grid.Row="1" Grid.Column="0" Margin="10,0,10,0" Background="#1e1f29" BorderBrush="#313342" BorderThickness="4" />
+        <Button Name="btnDumpFirmware" Height="40" Grid.Row="1" Grid.Column="2" Background="#1e1f29" Margin="0,0,10,0" BorderBrush="#313342" BorderThickness="4" Content="Dump Firmware" />
+        <Border Grid.Column="0" Grid.Row="3" Background="#282a36" Height="37" BorderThickness="4" CornerRadius="3.5" Width="650" BorderBrush="#bd93f9" Margin="10,0,10,0"><TextBlock Margin="5,5,5,5">Use fn + b or use the reset button to enter flashing mode before dumping firmware.</TextBlock></Border>
+    </Grid>
+    </Window>
