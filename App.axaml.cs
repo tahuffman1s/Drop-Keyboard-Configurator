@@ -1,6 +1,9 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using System.IO;
+using System.Reflection;
+using ReactiveUI;
 using DropKeyboardConfigurator.ViewModels;
 using DropKeyboardConfigurator.Views;
 using DropKeyboardConfigurator.Domain;
@@ -12,7 +15,10 @@ namespace DropKeyboardConfigurator
     {
         public override void Initialize()
         {
-            
+            _settingsService = new SettingsService();
+            defaultFileLocations = new DefaultFileLocationsModel();
+            operatingSystemsModel = new OperatingSystemsModel();
+            settingsValues = _settingsService.LoadSettings(defaultFileLocations.SettingsFileLocation);
             AvaloniaXamlLoader.Load(this);
         }
 
@@ -22,11 +28,24 @@ namespace DropKeyboardConfigurator
             {
                 desktop.MainWindow = new MainWindow
                 {
-                    DataContext = new MainWindowViewModel(),
+                    DataContext = new MainWindowViewModel(_settingsService, settingsValues, defaultFileLocations, operatingSystemsModel),
                 };
             }
 
             base.OnFrameworkInitializationCompleted();
         }
+
+        #region "Theme Engine Values"
+            private SettingsModel settingsValues;
+            private SettingsService _settingsService;
+        #endregion
+
+        #region "File Location Values"
+            private DefaultFileLocationsModel defaultFileLocations;
+        #endregion
+
+        #region "OS Type Model"
+            private OperatingSystemsModel operatingSystemsModel;
+        #endregion
     }
 }

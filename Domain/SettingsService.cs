@@ -6,6 +6,7 @@ namespace DropKeyboardConfigurator.Domain
 {
     public class SettingsService 
     {
+        // This service is solely for serializing the JSON for the settings file.
         public SettingsModel LoadSettings(DirectoryInfo SettingsFileLocation)
         {
             try

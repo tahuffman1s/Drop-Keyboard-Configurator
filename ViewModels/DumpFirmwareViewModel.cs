@@ -8,7 +8,9 @@ using System.Reflection;
 using System.Runtime;
 using System.Diagnostics;
 using DropKeyboardConfigurator.Domain;
+using DropKeyboardConfigurator.Views;
 using DropKeyboardConfigurator.Models;
+
 
 namespace DropKeyboardConfigurator.ViewModels
 {

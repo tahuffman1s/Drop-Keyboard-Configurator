@@ -29,7 +29,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Classes="h1" Foreground="{Binding SettingsValues.LabelColor}" Margin="10,10,0,0">Settings:</Label>
-        <TextBox Grid.Row="1" Background="{Binding SettingsValues.FileBoxBackground}" BorderThickness="4" BorderBrush="{Binding SettingsValues.FileBoxBorder}" Name="txtSettings" Margin="10,10,10,10" AcceptsReturn="True" TextWrapping="Wrap" />
+        <TextBox Grid.Row="1" Foreground="{Binding SettingsValues.SettingsTextColor}" Background="{Binding SettingsValues.FileBoxBackground}" BorderThickness="4" BorderBrush="{Binding SettingsValues.FileBoxBorder}" Name="txtSettings" Margin="10,10,10,10" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding SettingsData}"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="450"/>
@@ -42,7 +42,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Border Grid.Column="0" Background="{Binding SettingsValues.BottomLabelBackground}" Height="37" BorderThickness="4" CornerRadius="3.5" Width="450" BorderBrush="{Binding SettingsValues.BottomLabelBorder}" Margin="10,0,10,0"><TextBlock Margin="5,5,5,5"> You'll have to restart the application to see these changes.</TextBlock></Border>
-            <Button Name="btnSave" Command="{Binding Save}" Background="{Binding SettingsValues.ButtonBackground}" Grid.Column="2" HorizontalAlignment="Right" Grid.Row="0" Height="37" Margin="0,0,10,5" Width="100" Content="Save" BorderBrush="{Binding SettingsValues.ButtonBorder}" BorderThickness="4"/>
+            <Button Name="btnSave" Command="{Binding save}" Background="{Binding SettingsValues.ButtonBackground}" Grid.Column="2" HorizontalAlignment="Right" Grid.Row="0" Height="37" Margin="0,0,10,5" Width="100" Content="Save" BorderBrush="{Binding SettingsValues.ButtonBorder}" BorderThickness="4"/>
             <Button Name="btnReset" Command="{Binding Reset}" Background="{Binding SettingsValues.ButtonBackground}" Grid.Column="3" HorizontalAlignment="Right" Grid.Row="0" Height="37" Margin="0,0,10,5" Width="100" Content="Default" BorderBrush="{Binding SettingsValues.ButtonBorder}" BorderThickness="4"/>
             <Button Name="btnCancel" Command="{Binding Cancel}" Background="{Binding SettingsValues.ButtonBackground}" Grid.Column="4" HorizontalAlignment="Right" Grid.Row="0" Height="37" Margin="0,0,10,5" Width="100" Content="Cancel" BorderBrush="{Binding SettingsValues.ButtonBorder}" BorderThickness="4"/>
         </Grid>
